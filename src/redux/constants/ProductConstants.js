@@ -1,0 +1,10 @@
+export const GET_PRODUCTS = "GET_PRODUCTS";
+export const SEARCH_PRODUCTS = "SEARCH_PRODUCTS";
+export const FILTER_BY_BRAND = "FILTER_BY_BRAND";
+export const FILTER_BY_COLOR = "FILTER_BY_COLOR";
+export const SORT_BY_PRICE_ASC = "SORT_BY_PRICE_ASC";
+export const SORT_BY_PRICE_DESC = "SORT_BY_PRICE_DESC";
+export const SORT_BY_DATE_ASC = "SORT_BY_DATE_ASC";
+export const SORT_BY_DATE_DESC = " SORT_BY_DATE_DESC";
+export const ACTIVE_SORT = "ACTIVE_SORT";
+
