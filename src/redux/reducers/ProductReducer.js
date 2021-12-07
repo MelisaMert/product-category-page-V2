@@ -9,13 +9,13 @@ const initialState = {
 }
 
 const ProductReducer = (state = initialState, action) => {
-    let products = state.products;
+    let products = JSON.parse(localStorage.getItem('Products'));
 
     switch (action.type) {
         case actions.FETCH_PRODUCTS:
             return {
                 ...state,
-                searchProducts: products
+                searchProducts: state.products
             }
         case actions.SEARCH_PRODUCTS:
             return {
@@ -25,24 +25,24 @@ const ProductReducer = (state = initialState, action) => {
                 
             }
         case actions.FILTER_BY_BRAND:
-            if (action.payload.length > 0) {
+          
+            if(action.payload.length > 0) {
                 products = products.filter(p => action.payload.includes(p.brand))
-            }
+            } 
             return {
                 ...state,
-                brands: action.payload,
                 products: products
             }
         case actions.FILTER_BY_COLOR:
+          
             if (action.payload.length > 0) {
                 products = products.filter(p => arrayUtils.compare(p.colors, action.payload) > 0)
-            }
-
+            } 
             return {
                 ...state,
-                colors: action.payload.colors,
                 products: products
             }
+
         case actions.SORT_BY_PRICE_ASC:
             return {
                 ...state,

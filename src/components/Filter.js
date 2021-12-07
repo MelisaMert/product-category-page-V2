@@ -28,7 +28,7 @@ const Filter = () => {
              selectableFilters.brands.push(product.brand)
         }
 
-        product.colors.forEach((color) => {
+        product?.colors?.forEach((color) => {
             if (!selectableFilters.colors.includes(color)) {
                 selectableFilters.colors.push(color)
             }
@@ -64,7 +64,7 @@ const Filter = () => {
             <div>
                 <p className="filter-header">Renk</p>
                 {
-                    selectableFilters.colors.map((color, i) => {
+                    selectableFilters.colors?.map((color, i) => {
                         return (<span
                             key={i}
                             style={{ color: colors.includes(color) ? '#FF6000' : 'black' }}
