@@ -6,8 +6,7 @@ import './Filter.css';
 
 const Filter = () => {
     const dispatch = useDispatch();
-    const { products } = useSelector(state => state.product);
-    console.log('Products', products)
+    const products = JSON.parse(localStorage.getItem('Products'));
     const [brands, setBrands] = useState([]);
     const [colors, setColors] = useState([]);
 
@@ -59,7 +58,6 @@ const Filter = () => {
 
         setColors(colorList);
     }
-
 
     return (<>
         <div className="filter">
