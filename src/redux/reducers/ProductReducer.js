@@ -18,9 +18,12 @@ const ProductReducer = (state = initialState, action) => {
                 searchProducts: state.products
             }
         case actions.SEARCH_PRODUCTS:
+            if(action.payload.length > 3) {
+                products = state.searchProducts.filter((product) => product.name.toLowerCase().includes(action.payload.toLowerCase()))
+            }
             return {
                 ...state,
-                products: state.searchProducts.filter((product) => product.name.toLowerCase().includes(action.payload.toLowerCase())),
+                products: products,
                 searchText: action.payload
                 
             }

@@ -9,7 +9,7 @@ const Search = () => {
     const dispatch = useDispatch(); 
 
     useEffect(() => {
-       dispatch(searchProducts(search))
+      dispatch(searchProducts(search))
     }, [search,dispatch])
 
     return(
