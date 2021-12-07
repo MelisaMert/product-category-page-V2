@@ -33,7 +33,7 @@ const ProductList = () => {
                          picture={product.picture}
                          smallImage={product.smallImage}
                       />
-                    )) : <div className="empty-product-list"><span></span></div>
+                    )) : <div className="empty-product-list"><span>Herhangi bir ürün bulunamadı</span></div>
                }
            </div>
         </>

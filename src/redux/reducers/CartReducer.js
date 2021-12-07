@@ -15,6 +15,7 @@ const CartReducer = (state = initialState, action) => {
 
         case actions.ADD_TO_CART:
             const newCart = [...state.cart, action.payload];
+            localStorage.setItem('Cart', JSON.stringify(newCart));
             return {
                 ...state,
                 cart: newCart,
@@ -23,6 +24,7 @@ const CartReducer = (state = initialState, action) => {
 
         case actions.DELETE_FROM_CART:
             const upCart = state.cart.filter(c => c.id !== action.payload);
+            localStorage.setItem('Cart', JSON.stringify(upCart));
             return {
                 ...state,
                 cart: upCart,
