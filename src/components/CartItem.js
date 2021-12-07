@@ -1,13 +1,13 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { isRemoveCartItem } from '../redux/actions/CartActions';
+import { isDisplayDeleteModal } from '../redux/actions/CartActions';
 import './CartItem.css';
 
 const CartItem = ({ id, name, smallImage }) => {
     const dispatch = useDispatch();
 
     const deleteProduct = () => {
-        dispatch(isRemoveCartItem(id));
+        dispatch(isDisplayDeleteModal(id));
     }
 
     return(<>

@@ -43,7 +43,7 @@ export const getTotalAmountOfCart = () => async(dispatch) => {
     }
 }
 
-export const isRemoveCartItem = (id) => async(dispatch) => {
+export const isDisplayDeleteModal = (id) => async(dispatch) => {
     try {
         dispatch({
             type: actions.IS_DISPLAY_DELETE_MODAL,

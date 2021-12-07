@@ -9,7 +9,7 @@ const Product = ({id,name,description,price,originalPrice,currency,colors,brand,
     const className = () => {
         const foundItem = cart?.find(c => c.id === id);
         return foundItem ? 'add-to-cart-passive' : "add-to-cart"
-     }
+    }
 
     const onClick = () => {
         let product = {

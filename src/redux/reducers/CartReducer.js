@@ -2,9 +2,10 @@ import * as actions from '../constants/CartConstants';
 
 const initialState = {
     isDisplayDeleteModal: false,
+    cart: JSON.parse(localStorage.getItem('Cart')),
+    totalCount: JSON.parse(localStorage.getItem('Cart')).length
 }
 
-// cart ? doğrusu ne olmalı bak
 const CartReducer = (state = initialState, action) => {
     switch (action.type) {
         case actions.GET_CART:
@@ -14,7 +15,6 @@ const CartReducer = (state = initialState, action) => {
 
         case actions.ADD_TO_CART:
             const newCart = [...state.cart, action.payload];
-            // set Storage
             return {
                 ...state,
                 cart: newCart,
