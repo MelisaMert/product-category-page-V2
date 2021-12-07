@@ -1,10 +1,9 @@
 import * as actions from '../constants/ProductConstants';
 
-// storage'dan çekilen datayı payload ile gönder
-export const getProducts = () => async (dispatch) => {
+export const fetchProducts = () => async (dispatch) => {
     try {
         dispatch({
-            type: actions.GET_PRODUCTS
+            type: actions.FETCH_PRODUCTS
         })
     } catch (error) {
         console.log(error);
@@ -15,9 +14,7 @@ export const searchProducts = (query) => async(dispatch) => {
     try {
         dispatch({
             type: actions.SEARCH_PRODUCTS,
-            payload: {
-                query: query
-            }
+            payload:query
         })
     } catch(error) {
         console.log(error);

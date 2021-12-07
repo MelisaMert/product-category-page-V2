@@ -1,21 +1,23 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from 'react'; 
+import { useState, useEffect } from 'react'; 
+import { searchProducts } from "../redux/actions/ProductActions";
 import './Search.css';
 
 const Search = () => {
 
-    const [value,setValue] = useState();
+    const [search,setSearch] = useState("");
+    const dispatch = useDispatch(); 
 
-    const onChange = (e) => {
-       setValue(e.target.value)
-    }
+    useEffect(() => {
+       dispatch(searchProducts(search))
+    }, [search,dispatch])
 
     return(
         <input
            data-testid = "search-input"
            className="search-button"
-           value={value}
-           onChange={onChange}
+           value={search}
+           onChange={(e) => setSearch(e.target.value)}
            placeholder="25 milyon’dan fazla ürün içerisinde ara"
         />
     )

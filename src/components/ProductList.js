@@ -1,11 +1,18 @@
-import { React, useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect }from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchProducts } from '../redux/actions/ProductActions';
 import Product from './Product';
 import './ProductList.css';
 
 
 const ProductList = () => {
     const { products } = useSelector(state => state.product);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+       dispatch(fetchProducts()) 
+    }, [dispatch])
+
     return (
         <>
            <div className="product-wrapper">

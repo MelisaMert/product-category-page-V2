@@ -3,21 +3,26 @@ import * as arrayUtils from '../../utils/arrayUtils';
 import * as dateUtils from '../../utils/dateUtils';
 
 const initialState = {
-    products: JSON.parse(localStorage.getItem('Products'))
+    products: JSON.parse(localStorage.getItem('Products')),
+    searchProducts: JSON.parse(localStorage.getItem('Products')),
+    searchText: ''
 }
 
-// GET_PRODUCTS action'ı nerede fırlatılacak ? 
 const ProductReducer = (state = initialState, action) => {
     let products = state.products;
 
     switch (action.type) {
-        case actions.GET_PRODUCTS:
+        case actions.FETCH_PRODUCTS:
             return {
-                ...state
+                ...state,
+                searchProducts: products
             }
         case actions.SEARCH_PRODUCTS:
             return {
-                ...state
+                ...state,
+                products: state.searchProducts.filter((product) => product.name.toLowerCase().includes(action.payload.toLowerCase())),
+                searchText: action.payload
+                
             }
         case actions.FILTER_BY_BRAND:
             if (action.payload.length > 0) {
