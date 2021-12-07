@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { filterByBrand, filterByColor } from '../redux/actions/ProductActions';
 import Sorter from './Sorter';
 import './Filter.css';
